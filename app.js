@@ -78,8 +78,8 @@ app.post("/register", async (req, res) => {
     });
 
     // send verification email
-    const { HOST_NAME, PORT, HEROKU } = process.env;
-    const base_url = HEROKU ? HOST_NAME : HOST_NAME + ":" + PORT;
+    const { HOST_NAME, PORT, IS_CUSTOM_DOMAIN } = process.env;
+    const base_url = IS_CUSTOM_DOMAIN ? HOST_NAME : HOST_NAME + ":" + PORT;
     const emailVerificationLink = `${base_url}/verify/${user._id}/${email_verification_token}`;
     const email_preview_link = await sendVerificationEmail(
       email,
