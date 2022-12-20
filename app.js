@@ -36,8 +36,8 @@ app.use("/task", taskRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send(
-    `Welcome to elRed API !!
-    <a href='https://github.com/ShanuDey/elred-api-project#readme' target='_blank'>API Docs</a>`
+    `Welcome to Task Management API !!
+    <a href='https://github.com/ShanuDey/task-management-api#readme' target='_blank'>API Docs</a>`
   );
 });
 

@@ -42,10 +42,10 @@ exports.sendVerificationEmail = async (email, verificationLink) => {
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Shanu Dey" <Verify@example.com>', // sender address
+    from: '"Task Manager" <Verify@example.com>', // sender address
     to: email, // list of receivers
-    subject: "Verification OTP for elRed API", // Subject line
-    text: "elRed API", // plain text body
+    subject: "Verification OTP for Task Management API", // Subject line
+    text: "Task Management API", // plain text body
     html: `<b>Verification link : <a href="${verificationLink}">Click here to verify email</a></b>`, // html body
   });
 

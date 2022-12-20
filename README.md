@@ -1,6 +1,6 @@
 
-# elRed API Project
-[![Deploy docker container to heroku](https://github.com/ShanuDey/elred-api-project/actions/workflows/heroku-docker-deploy.yml/badge.svg)](https://github.com/ShanuDey/elred-api-project/actions/workflows/heroku-docker-deploy.yml)
+# Task Management API
+[![Deploy docker container to heroku](https://github.com/ShanuDey/task-management-api/actions/workflows/heroku-docker-deploy.yml/badge.svg)](https://github.com/ShanuDey/task-management-api/actions/workflows/heroku-docker-deploy.yml)
 
 ## Installation
  - Clone this repository
@@ -11,25 +11,25 @@
 ## Usage
  - Postman Collection - https://www.getpostman.com/collections/70acf33c7cb9c5725fac
  - Base URL 
-	 - Heroku Hosted - https://elred-api-project.herokuapp.com/
+	 - Heroku Hosted - https://task-management-api.herokuapp.com/
 	 - Localhost - http://localhost:8000/
  - Register user with `first_name`, `last_name`, `email` and `password` POST request body json parameters to `/register` route  
-	 - Example - https://elred-api-project.herokuapp.com/register
+	 - Example - https://task-management-api.herokuapp.com/register
 	- [Optional] [Create a test create email with one click](https://ethereal.email)
 		- if you are using test email then you will receive a preview email from the response
 		- click on the preview email link and verify email from there
  - Login with `email` and `password` POST request body json paramaters to `/login` route 
-	 - Example - https://elred-api-project.herokuapp.com/login
+	 - Example - https://task-management-api.herokuapp.com/login
  - Create a task as authenticated user with `task`, `date` and `status` POST request body json parameters to `/task/create` route
-	 - Example - https://elred-api-project.herokuapp.com/task/create
+	 - Example - https://task-management-api.herokuapp.com/task/create
 	 - `task` is a String Object, `date` is a Date Object and `status` can only accept "Completed" or "Incomplete"
  - View all created tasks as authenticated user with GET request to `/task` route
-	 - Example - https://elred-api-project.herokuapp.com/task
+	 - Example - https://task-management-api.herokuapp.com/task
  - Patch a task as authenticated user with any of these `task`, `date` and `status` PATCH request body json parameters to `/task/:id` route
-	 - Example - https://elred-api-project.herokuapp.com/task/:TASK_ID
+	 - Example - https://task-management-api.herokuapp.com/task/:TASK_ID
  -  Delete a task as authenticated user with DELETE request to `/task/:id` route
-	 - Example - https://elred-api-project.herokuapp.com/task/:TASK_ID
+	 - Example - https://task-management-api.herokuapp.com/task/:TASK_ID
  - Logout with GET request to `/logout` route
-	 - Example - https://elred-api-project.herokuapp.com/logout
+	 - Example - https://task-management-api.herokuapp.com/logout
 
 ### Feel free to put a start or raise an issue
