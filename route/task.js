@@ -84,21 +84,33 @@ router.patch("/:id", auth, async (req, res) => {
 
 router.delete("/:id", auth, async (req, res) => {
   try {
-    // get the inputs from the request
     const task_id = req.params.id;
     const { email } = req.user;
 
-    // delete the task from the tasks array in database
-    const user = await User.findOneAndUpdate(
-      { email },
-      { $pull: { tasks: { _id: task_id } } },
-      { new: true }
-    );
+    // First, find the user and check if task exists
+    const user = await User.findOne({ email });
+    const taskExists = user.tasks.id(task_id);
+    
+    if (!taskExists) {
+      return res.status(404).json({ error: "Task not found" });
+    }
 
-    // respond with the updated task list
+    // Log the tasks array before deletion
+    console.log('Before deletion:', user.tasks);
+
+    // Remove the task using filter and save
+    user.tasks = user.tasks.filter(task => 
+      task._id.toString() !== task_id
+    );
+    
+    await user.save();
+
+    // Log the tasks array after deletion
+    console.log('After deletion:', user.tasks);
+
     res.status(200).json(user.tasks);
   } catch (error) {
-    console.error(error);
+    console.error('Delete operation error:', error);
     res.status(500).json({ error: "Something went wrong !!" });
   }
 });
